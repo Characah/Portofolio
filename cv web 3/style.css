@@ -1,0 +1,403 @@
+/* =========================================================
+   VARIABEL TEMA (gelap / terang)
+   Semua warna situs mengacu ke variabel di bawah ini,
+   sehingga berubah serempak saat data-bs-theme berganti.
+========================================================= */
+
+[data-bs-theme="light"] {
+    color-scheme: light;
+
+    --page-bg: #f8fafc;
+    --page-fg: #0f172a;
+    --text-muted: #475569;
+    --surface-alt: #eef2f7;
+    --card-bg: #ffffff;
+    --chip-bg: #e2e8f0;
+    --track: rgba(15, 23, 42, 0.10);
+    --line: rgba(15, 23, 42, 0.12);
+    --line-strong: rgba(15, 23, 42, 0.28);
+
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-rgb: 37, 99, 235;
+    --on-accent: #ffffff;
+    --ok: #16a34a;
+    --danger: #dc2626;
+
+    /* Token Bootstrap 6 untuk body */
+    --bs-bg-body: #f8fafc;
+    --bs-fg-body: #0f172a;
+}
+
+[data-bs-theme="dark"] {
+    color-scheme: dark;
+
+    --page-bg: #0b1120;
+    --page-fg: #f1f5f9;
+    --text-muted: #94a3b8;
+    --surface-alt: #0e1728;
+    --card-bg: #111b2e;
+    --chip-bg: #162238;
+    --track: rgba(148, 163, 184, 0.20);
+    --line: rgba(148, 163, 184, 0.15);
+    --line-strong: rgba(148, 163, 184, 0.32);
+
+    --accent: #60a5fa;
+    --accent-hover: #3b82f6;
+    --accent-rgb: 96, 165, 250;
+    --on-accent: #0b1120;
+    --ok: #22c55e;
+    --danger: #f87171;
+
+    --bs-bg-body: #0b1120;
+    --bs-fg-body: #f1f5f9;
+}
+
+html {
+    scroll-padding-top: 85px;
+}
+
+body {
+    background-color: var(--page-bg);
+    color: var(--page-fg);
+}
+
+body,
+.site-navbar,
+.card,
+.section-alt,
+.form-control,
+.floating-chip {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* =========================
+   UTILITAS WARNA TEMA
+========================= */
+
+.c-accent { color: var(--accent); }
+.c-muted  { color: var(--text-muted); }
+.c-ok     { color: var(--ok); }
+.nowrap   { white-space: nowrap; }
+.wrap-any { overflow-wrap: anywhere; }
+
+/* =========================
+   NAVBAR
+========================= */
+
+.site-navbar {
+    position: fixed;
+    top: 0;
+    inset-inline: 0;
+    z-index: 1030;
+    background-color: color-mix(in srgb, var(--page-bg) 75%, transparent);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(14px);
+}
+
+.site-navbar .navbar-brand {
+    color: var(--page-fg);
+}
+
+.site-navbar .nav-link {
+    color: var(--text-muted);
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link:focus-visible {
+    color: var(--accent);
+}
+
+.site-navbar .navbar-toggler {
+    color: var(--page-fg);
+}
+
+/* Panel drawer (tampilan mobile) */
+.site-navbar .drawer {
+    background-color: var(--page-bg);
+    color: var(--page-fg);
+    border-color: var(--line);
+}
+
+/* Tombol ganti tema */
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    line-height: 1;
+    background-color: transparent;
+    color: var(--page-fg);
+    border: 1px solid var(--line-strong);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+    background-color: var(--page-fg);
+    color: var(--page-bg);
+    border-color: var(--page-fg);
+}
+
+/* =========================
+   TOMBOL
+========================= */
+
+.btn-solid.theme-primary {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+}
+
+.btn-solid.theme-primary:hover,
+.btn-solid.theme-primary:focus-visible,
+.btn-solid.theme-primary:active {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: #fff;
+}
+
+/* Outline yang mengikuti warna teks tema */
+.btn-contrast {
+    background-color: transparent;
+    color: var(--page-fg);
+    border-color: var(--page-fg);
+}
+
+.btn-contrast:hover,
+.btn-contrast:focus-visible,
+.btn-contrast:active {
+    background-color: var(--page-fg);
+    color: var(--page-bg);
+    border-color: var(--page-fg);
+}
+
+/* Outline abu-abu (ikon sosial) */
+.btn-social {
+    background-color: transparent;
+    color: var(--text-muted);
+    border-color: var(--line-strong);
+}
+
+.btn-social:hover,
+.btn-social:focus-visible,
+.btn-social:active {
+    background-color: var(--text-muted);
+    color: var(--page-bg);
+    border-color: var(--text-muted);
+}
+
+/* =========================
+   KARTU
+========================= */
+
+.card {
+    background-color: var(--card-bg);
+    color: inherit;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+}
+
+.card-hover {
+    transition: border-color 0.3s ease, transform 0.3s ease, background-color 0.25s ease;
+}
+
+.card-hover:hover {
+    border-color: rgba(var(--accent-rgb), 0.45);
+    transform: translateY(-4px);
+}
+
+/* =========================
+   SECTION & TIPOGRAFI
+========================= */
+
+.page-section {
+    padding-block: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .page-section {
+        padding-block: 3rem;
+    }
+}
+
+.section-alt {
+    background-color: var(--surface-alt);
+    border-block: 1px solid var(--line);
+}
+
+.section-label {
+    letter-spacing: 3px;
+    color: var(--accent);
+}
+
+.section-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-title {
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.hero-nim {
+    font-size: 1.5rem;
+}
+
+.skill-icon {
+    display: block;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--accent);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    padding-top: 56px;
+    background:
+        radial-gradient(circle at 80% 40%, rgba(var(--accent-rgb), 0.12), transparent 35%),
+        var(--page-bg);
+}
+
+.pill-accent {
+    background-color: rgba(var(--accent-rgb), 0.12);
+    border: 1px solid rgba(var(--accent-rgb), 0.35);
+}
+
+.profile-wrapper {
+    position: relative;
+    max-width: 350px;
+}
+
+.profile-glow {
+    position: absolute;
+    inset: 0;
+    background-color: var(--accent);
+    opacity: 0.25;
+    border-radius: 2rem;
+    transform: rotate(5deg);
+}
+
+.profile-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: clamp(290px, 40vw, 400px);
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 2rem;
+    border: 1px solid rgba(var(--accent-rgb), 0.35);
+}
+
+.floating-chip {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--chip-bg);
+    border: 1px solid var(--line);
+    color: var(--page-fg);
+    white-space: nowrap;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline-item {
+    position: relative;
+    margin-inline-start: 0.25rem;
+    padding-inline-start: 1.5rem;
+    border-inline-start: 2px solid rgba(var(--accent-rgb), 0.5);
+}
+
+.timeline-item:not(:last-child) {
+    padding-block-end: 1.5rem;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: -7px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.3);
+}
+
+.timeline-title {
+    font-size: 1.25rem;
+    margin-block: 0.25rem;
+}
+
+/* =========================
+   PROGRESS KEAHLIAN
+========================= */
+
+.progress {
+    height: 6px;
+    background-color: var(--track);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--accent);
+}
+
+/* =========================
+   KONTAK & FORM
+========================= */
+
+.contact-card {
+    background-image: radial-gradient(circle at top, rgba(var(--accent-rgb), 0.12), transparent 60%);
+}
+
+.contact-card form {
+    max-width: 560px;
+}
+
+.contact-card .form-control {
+    background-color: var(--page-bg);
+    color: var(--page-fg);
+    border: 1px solid var(--line-strong);
+}
+
+.contact-card .form-control::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.contact-card .form-control:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 0.2rem rgba(var(--accent-rgb), 0.25);
+    outline: none;
+}
+
+.contact-card .invalid-feedback {
+    color: var(--danger);
+}
+
+/* =========================
+   SPINNER
+========================= */
+
+.spinner-grow {
+    color: var(--ok);
+}
